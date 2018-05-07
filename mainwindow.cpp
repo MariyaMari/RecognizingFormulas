@@ -10,9 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
 //    imageLabel = new QLabel;
-    ui->imageLabel->setBackgroundRole(QPalette::Base);
-    ui->imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-    ui->imageLabel->setScaledContents(true);
+    //ui->imageLabel->setBackgroundRole(QPalette::Base);
+    //ui->imageLabel->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+    //ui->imageLabel->setScaledContents(true);
 
     createActions();
     createMenus();
@@ -38,8 +38,9 @@ void MainWindow::open()
                                           tr("Не удается загрузить файл %1. \nВыберите картинку").arg(fileName));
                  return;
              }
-          ui->imageLabel->setPixmap(QPixmap::fromImage(image));
-          ui->imageLabel->adjustSize();
+             QPixmap pixmap = QPixmap::fromImage(image);
+             ui->imageLabel->setPixmap(pixmap);
+            //ui->imageLabel->adjustSize();
           }
 //          printAct->setEnabled(true);
 //          fitToWindowAct->setEnabled(true);
